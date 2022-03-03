@@ -1,11 +1,15 @@
 <?php
 
+use App\Http\Controllers\AboutController;
+use App\Http\Controllers\BlogController;
+use App\Http\Controllers\ContactController;
 use App\Http\Controllers\ControllerAboutUs;
 use App\Http\Controllers\ControllerContactUs;
 use App\Http\Controllers\ControllerHome;
 use App\Http\Controllers\ControllerNews;
 use App\Http\Controllers\ControllerProducts;
 use App\Http\Controllers\ControllerPrograms;
+use App\Http\Controllers\HomeController;
 use Illuminate\Support\Facades\Route;
 
 Route::get("/", [ControllerHome::class, 'index']);
@@ -30,4 +34,10 @@ Route::get("/about-us", [ControllerAboutUs::class, 'index']);
 Route::resource('/contact-us', ControllerContactUs::class, [
     'only' => ['index', 'profile', 'address']
 ]);
+
+// Tugas Praktikum 2
+Route::get("/home", [HomeController::class, 'index']);
+Route::get("/about", [AboutController::class, 'index']);
+Route::get("/contact", [ContactController::class, 'index']);
+Route::get("/blog", [BlogController::class, 'index']);
 
